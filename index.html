@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corevia Industries – Precision Thermal Paper Solutions</title>
+<meta name="description" content="Corevia Industries – Premium thermal paper roll manufacturer and distributor based in Alappuzha, Kerala. Custom slitting, bulk supply, pan-India delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #0f0f0f;
+    --surface: #141414;
+    --border: #1e1e1e;
+    --border-light: #2a2a2a;
+    --gold: #c9a96e;
+    --gold-light: #e2c99a;
+    --gold-dim: #8a7050;
+    --white: #f5f0e8;
+    --white-dim: #9e9890;
+    --white-faint: #3a3732;
+    --accent: #c9a96e;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,169,110,0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+  }
+  .cursor.hover { width: 14px; height: 14px; }
+  .cursor-ring.hover { width: 56px; height: 56px; border-color: rgba(201,169,110,0.2); }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* SCROLL PROGRESS */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-light));
+    z-index: 1000;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.1s linear;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.4s ease, background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 60px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-decoration: none;
+  }
+  .logo-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .logo-tagline {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black) !important;
+    background: var(--gold);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 160px 60px 100px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 75% 50%, rgba(201,169,110,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 100% 0%, rgba(201,169,110,0.04) 0%, transparent 60%),
+      linear-gradient(135deg, #0a0a0a 0%, #0f0d0a 50%, #0a0a0a 100%);
+  }
+
+  /* Animated grid lines */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,169,110,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    animation: gridShift 20s linear infinite;
+  }
+  @keyframes gridShift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
+  }
+
+  .hero-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(201,169,110,0.15) 30%, rgba(201,169,110,0.15) 70%, transparent);
+    animation: lineFloat 8s ease-in-out infinite;
+  }
+  .hero-line:nth-child(1) { left: 15%; animation-delay: 0s; }
+  .hero-line:nth-child(2) { left: 85%; animation-delay: 3s; }
+  @keyframes lineFloat {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-label::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--white-dim);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.8s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover::before { transform: scaleX(1); }
+  .btn-primary span { position: relative; z-index: 1; }
+  .btn-primary svg { position: relative; z-index: 1; transition: transform 0.3s ease; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-decoration: none;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { color: var(--gold-light); border-color: var(--gold-dim); }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeLeft 1s ease 1s forwards;
+  }
+  .hero-stat {
+    text-align: right;
+    border-right: 1px solid var(--gold-dim);
+    padding-right: 20px;
+  }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-top: 4px;
+  }
+
+  /* MARQUEE */
+  .marquee-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    overflow: hidden;
+    background: var(--deep);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 60px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    white-space: nowrap;
+  }
+  .marquee-item span { color: var(--gold-dim); }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION COMMON */
+  section { position: relative; z-index: 2; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* ABOUT */
+  .about {
+    padding: 140px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-text {
+    max-width: 480px;
+  }
+
+  .about-body {
+    margin-top: 32px;
+    font-size: 16px;
+    color: var(--white-dim);
+    line-height: 1.9;
+  }
+  .about-body p + p { margin-top: 20px; }
+
+  .about-visual {
+    position: relative;
+    height: 500px;
+  }
+
+  .about-card {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 36px;
+    transition: border-color 0.3s ease;
+  }
+  .about-card:hover { border-color: var(--gold-dim); }
+
+  .about-card-main {
+    width: 340px;
+    right: 0; top: 40px;
+    z-index: 2;
+  }
+  .about-card-accent {
+    width: 240px;
+    left: 0; bottom: 40px;
+    z-index: 3;
+    background: var(--deep);
+  }
+
+  .about-card-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 16px;
+  }
+
+  .about-card-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .about-card-body {
+    font-size: 13px;
+    color: var(--white-dim);
+    line-height: 1.7;
+  }
+
+  .about-card-stat {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .about-divider {
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, var(--gold-dim), transparent);
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+  }
+
+  /* PRODUCTS */
+  .products {
+    padding: 120px 60px;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .product-card {
+    background: var(--surface);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease;
+    cursor: default;
+  }
+  .product-card:hover { background: #181612; }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+  .product-card:hover::before { height: 100%; }
+
+  .product-number {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--white-faint);
+    margin-bottom: 32px;
+  }
+
+  .product-icon {
+    width: 48px; height: 48px;
+    margin-bottom: 24px;
+    color: var(--gold-dim);
+    transition: color 0.3s ease;
+  }
+  .product-card:hover .product-icon { color: var(--gold); }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .product-desc {
+    font-size: 13.5px;
+    color: var(--white-dim);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .product-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .spec-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    border: 1px solid var(--border-light);
+    padding: 5px 10px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .product-card:hover .spec-tag { border-color: var(--gold-dim); color: var(--gold); }
+
+  /* WHY */
+  .why {
+    padding: 140px 60px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 100px;
+  }
+
+  .why-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .why-item {
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    cursor: default;
+    transition: background 0.3s ease;
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-item:hover { background: var(--surface); }
+
+  .why-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    padding-top: 4px;
+    min-width: 28px;
+  }
+
+  .why-content {}
+  .why-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .why-text {
+    font-size: 13.5px;
+    color: var(--white-dim);
+    line-height: 1.75;
+  }
+
+  /* PROCESS */
+  .process {
+    padding: 120px 60px;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 80px;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 12.5%; right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold-dim), transparent);
+    opacity: 0.3;
+  }
+
+  .process-step {
+    padding: 0 40px 0 0;
+    position: relative;
+  }
+
+  .step-number {
+    width: 64px; height: 64px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--gold-dim);
+    margin-bottom: 32px;
+    background: var(--black);
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .process-step:hover .step-number {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .step-text {
+    font-size: 13px;
+    color: var(--white-dim);
+    line-height: 1.75;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 140px 60px;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+  }
+
+  .contact-info { max-width: 420px; }
+
+  .contact-body {
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--white-dim);
+    line-height: 1.85;
+    margin-bottom: 48px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-detail:hover { background: var(--surface); }
+
+  .detail-icon {
+    width: 36px; height: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-dim);
+    flex-shrink: 0;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .contact-detail:hover .detail-icon {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .detail-info {}
+  .detail-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+  }
+  .detail-value {
+    font-size: 14px;
+    color: var(--white-dim);
+    margin-top: 2px;
+  }
+
+  /* FORM */
+  .contact-form {}
+
+  .form-title {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 36px;
+    line-height: 1.2;
+  }
+  .form-title em { font-style: italic; color: var(--gold-light); }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold-dim);
+    background: #1a1814;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--white-faint); }
+  .form-select { cursor: pointer; }
+  .form-select option { background: var(--surface); color: var(--white); }
+
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    border: none;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .form-submit:hover::before { transform: scaleX(1); }
+  .form-submit span { position: relative; z-index: 1; }
+  .form-submit:hover { transform: translateY(-2px); }
+  .form-submit:active { transform: translateY(0); }
+
+  .form-note {
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--white-faint);
+    text-align: center;
+  }
+
+  /* SUCCESS MESSAGE */
+  .form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    border: 1px solid var(--gold-dim);
+    background: #14120e;
+    text-align: center;
+    gap: 16px;
+  }
+  .form-success.visible { display: flex; }
+  .success-icon {
+    width: 56px; height: 56px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .success-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--white);
+  }
+  .success-text {
+    font-size: 14px;
+    color: var(--white-dim);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 60px 60px 40px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 280px 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+  }
+
+  .footer-logo-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-logo-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .footer-desc {
+    font-size: 13px;
+    color: var(--white-faint);
+    line-height: 1.8;
+  }
+
+  .footer-col-title {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 24px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: var(--white-faint);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.03em;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--white-faint);
+  }
+
+  .footer-made {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--white-faint);
+  }
+  .footer-made span { color: var(--gold-dim); }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 200;
+    width: 52px; height: 52px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,0.6); }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE NAV */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--white-dim);
+    transition: all 0.3s ease;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    nav { padding: 20px 32px; }
+    nav.scrolled { padding: 14px 32px; }
+    .hero { padding: 140px 32px 80px; }
+    .hero-stats { right: 32px; }
+    .about, .why, .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+    .about-visual { height: 300px; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .process-steps::before { display: none; }
+    .products, .process, .contact, .about, .why { padding-left: 32px; padding-right: 32px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 32px 32px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero-stats { display: none; }
+    .products-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  }
+
+  @media (max-width: 700px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .hero-title { font-size: 48px; }
+    .section-title { font-size: 36px; }
+    .about-card-main, .about-card-accent { width: 100%; position: relative; right: auto; left: auto; top: auto; bottom: auto; }
+    .about-visual { height: auto; display: flex; flex-direction: column; gap: 16px; }
+    .about-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="logo">
+    <div class="logo-name">Corevia</div>
+    <div class="logo-tagline">Industries</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Get Enquiry</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-line"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">Alappuzha, Kerala — Est. 2024</div>
+    <h1 class="hero-title">
+      Precision in<br>
+      Every <em>Roll.</em>
+    </h1>
+    <p class="hero-sub">
+      Corevia Industries manufactures and supplies premium thermal paper rolls — custom-slit to specification, delivered fresh across India.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <span>Request a Quote</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#products" class="btn-ghost">
+        View Products
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">100+</div>
+      <div class="hero-stat-label">SKU Variants</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Pan</div>
+      <div class="hero-stat-label">India Delivery</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">B2B</div>
+      <div class="hero-stat-label">Direct Supply</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item">Thermal Paper Rolls <span>✦</span></div>
+    <div class="marquee-item">Custom Slitting <span>✦</span></div>
+    <div class="marquee-item">POS Billing Rolls <span>✦</span></div>
+    <div class="marquee-item">ATM Paper Rolls <span>✦</span></div>
+    <div class="marquee-item">Jumbo Roll Processing <span>✦</span></div>
+    <div class="marquee-item">Bulk Supply <span>✦</span></div>
+    <div class="marquee-item">Pan India Delivery <span>✦</span></div>
+    <div class="marquee-item">B2B Distribution <span>✦</span></div>
+    <div class="marquee-item">Thermal Paper Rolls <span>✦</span></div>
+    <div class="marquee-item">Custom Slitting <span>✦</span></div>
+    <div class="marquee-item">POS Billing Rolls <span>✦</span></div>
+    <div class="marquee-item">ATM Paper Rolls <span>✦</span></div>
+    <div class="marquee-item">Jumbo Roll Processing <span>✦</span></div>
+    <div class="marquee-item">Bulk Supply <span>✦</span></div>
+    <div class="marquee-item">Pan India Delivery <span>✦</span></div>
+    <div class="marquee-item">B2B Distribution <span>✦</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Built for the<br><em>Long Roll.</em></h2>
+    <div class="about-body">
+      <p>
+        Corevia Industries was founded with a clear vision — to become India's most reliable thermal paper manufacturer and distributor. Starting from our precision slitting unit in Alappuzha, Kerala, we process bulk jumbo rolls into perfectly finished thermal paper rolls for every commercial application.
+      </p>
+      <p>
+        We are a manufacturer-first company. Every roll that leaves our facility goes through strict quality checks — correct width tolerance, consistent density, clean edges. We supply direct to businesses, cutting out the middleman and passing the value to our customers.
+      </p>
+      <p>
+        Our 10-year vision: to be the number one thermal paper importer and distributor in India — and we are building every process, every partnership, and every product with that north star in mind.
+      </p>
+    </div>
+  </div>
+  <div class="about-visual reveal">
+    <div class="about-card about-card-main">
+      <div class="about-card-label">Our Focus</div>
+      <div class="about-card-title">Manufacturer-Direct Quality</div>
+      <div class="about-card-body">
+        We slit in-house from premium jumbo rolls — giving us full control over quality, cut precision, and delivery timelines that no reseller can match.
+      </div>
+    </div>
+    <div class="about-card about-card-accent">
+      <div class="about-card-label">Target</div>
+      <div class="about-card-stat">#1</div>
+      <div class="about-card-body" style="font-size:12px">Thermal paper importer & distributor in India by 2034.</div>
+    </div>
+    <div class="about-divider"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <div>
+      <div class="section-label">What We Supply</div>
+      <h2 class="section-title">Our <em>Products</em></h2>
+    </div>
+    <a href="#contact" class="btn-ghost">
+      Request Custom Spec
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="products-grid reveal">
+
+    <div class="product-card">
+      <div class="product-number">01</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="6"/>
+        <line x1="24" y1="4" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="44"/>
+        <line x1="4" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="44" y2="24"/>
+      </svg>
+      <div class="product-name">POS Billing Rolls</div>
+      <div class="product-desc">High-sensitivity thermal paper rolls for point-of-sale printers in retail, restaurants, and billing counters. Crisp, fade-resistant prints.</div>
+      <div class="product-specs">
+        <span class="spec-tag">57mm × 40m</span>
+        <span class="spec-tag">79mm × 50m</span>
+        <span class="spec-tag">Custom</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-number">02</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="8" y="14" width="32" height="20" rx="2"/>
+        <line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="26" x2="28" y2="26"/>
+        <path d="M16 34 L16 40 L32 40 L32 34"/>
+      </svg>
+      <div class="product-name">ATM Paper Rolls</div>
+      <div class="product-desc">Bank-grade thermal rolls engineered for ATM receipt printers. Long shelf life, consistent imaging density, coreless and cored variants available.</div>
+      <div class="product-specs">
+        <span class="spec-tag">80mm × 80m</span>
+        <span class="spec-tag">82mm</span>
+        <span class="spec-tag">Coreless</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-number">03</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 8 L38 8 L38 40 L10 40 Z"/>
+        <line x1="16" y1="16" x2="32" y2="16"/>
+        <line x1="16" y1="22" x2="32" y2="22"/>
+        <line x1="16" y1="28" x2="26" y2="28"/>
+      </svg>
+      <div class="product-name">Logistics & Label Rolls</div>
+      <div class="product-desc">Thermal rolls designed for shipping label printers, courier tracking, and warehouse operations. High print speed compatible, scratch-resistant coating.</div>
+      <div class="product-specs">
+        <span class="spec-tag">100mm × 150mm</span>
+        <span class="spec-tag">Fanfold</span>
+        <span class="spec-tag">Bulk</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-number">04</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M24 4 L44 14 L44 34 L24 44 L4 34 L4 14 Z"/>
+        <circle cx="24" cy="24" r="6"/>
+      </svg>
+      <div class="product-name">Petrol Pump Rolls</div>
+      <div class="product-desc">Heat-stable and smudge-proof thermal rolls for petrol pump dispensers and fuel management systems. Tested for outdoor temperature variance.</div>
+      <div class="product-specs">
+        <span class="spec-tag">57mm</span>
+        <span class="spec-tag">76mm</span>
+        <span class="spec-tag">Heat-stable</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-number">05</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 24 C8 14 14 8 24 8 S40 14 40 24 34 40 24 40 8 34 8 24Z"/>
+        <path d="M20 18 L28 18 L30 28 L18 28 Z"/>
+        <line x1="22" y1="28" x2="26" y2="28"/>
+      </svg>
+      <div class="product-name">Medical & Pharmacy</div>
+      <div class="product-desc">BPA-conscious thermal paper for prescription printers, pharmacy billing, and medical record printing. Clean formulation, compliant with safety standards.</div>
+      <div class="product-specs">
+        <span class="spec-tag">57mm</span>
+        <span class="spec-tag">BPA-free opt.</span>
+        <span class="spec-tag">Custom</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-number">06</div>
+      <svg class="product-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="6" width="16" height="16" rx="1"/>
+        <rect x="26" y="6" width="16" height="16" rx="1"/>
+        <rect x="6" y="26" width="16" height="16" rx="1"/>
+        <rect x="26" y="26" width="16" height="16" rx="1"/>
+      </svg>
+      <div class="product-name">Custom & Bulk Orders</div>
+      <div class="product-desc">Have a specific roll width, length, core diameter, or paper grade requirement? We slit to any specification. Minimum order quantities available for bulk buyers.</div>
+      <div class="product-specs">
+        <span class="spec-tag">Any width</span>
+        <span class="spec-tag">Any length</span>
+        <span class="spec-tag">MOQ flexible</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="reveal">
+    <div class="section-label">Our Edge</div>
+    <h2 class="section-title">Why Choose<br><em>Corevia</em></h2>
+    <div style="margin-top: 28px; font-size: 15px; color: var(--white-dim); line-height: 1.85; max-width: 320px;">
+      We exist at the intersection of manufacturing precision and customer-first distribution. Here is why businesses across India trust us.
+    </div>
+  </div>
+
+  <div class="why-items reveal">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <div class="why-content">
+        <div class="why-title">Fresh from the Source</div>
+        <div class="why-text">Thermal paper has a shelf life. We process and ship fresh stock directly from our slitting unit — no warehousing lag, no degraded coating quality.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <div class="why-content">
+        <div class="why-title">Kerala-Based, India-Ready</div>
+        <div class="why-text">Faster fulfillment for South India buyers. Our location gives you speed advantage — same-day dispatch to Kerala, next-day to Tamil Nadu and Karnataka.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <div class="why-content">
+        <div class="why-title">Manufacturer Pricing</div>
+        <div class="why-text">No middlemen. No markups on markups. You deal directly with the manufacturer and get the most competitive pricing in the market.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <div class="why-content">
+        <div class="why-title">Custom Slitting On Demand</div>
+        <div class="why-text">Need a non-standard width? A specific core diameter? A custom length? We slit to your exact specification — no compromise, no approximation.</div>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">05</div>
+      <div class="why-content">
+        <div class="why-title">Reliable B2B Partnership</div>
+        <div class="why-text">We understand business continuity. Consistent quality, reliable delivery schedules, and responsive communication — every order, every time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="reveal" style="text-align: center;">
+    <div class="section-label" style="justify-content: center;">How It Works</div>
+    <h2 class="section-title">Simple, <em>Precise</em> Process</h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-number">1</div>
+      <div class="step-title">Send Enquiry</div>
+      <div class="step-text">Share your product requirements — roll width, length, core size, paper grade, and quantity needed.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-number">2</div>
+      <div class="step-title">Quote & Confirm</div>
+      <div class="step-text">We respond with a competitive quote within hours. Samples available for new buyers before large orders.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-number">3</div>
+      <div class="step-title">Precision Slitting</div>
+      <div class="step-text">Your order is processed on our slitting machine with tolerance-controlled cuts and quality-checked finish.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-number">4</div>
+      <div class="step-title">Packed & Dispatched</div>
+      <div class="step-text">Securely packed and dispatched via your preferred logistics partner. Pan-India delivery available.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Let's Do<br><em>Business.</em></h2>
+      <p class="contact-body">
+        Whether you need a one-time bulk order or a long-term supply partnership, we are ready to serve. Fill the form or reach us directly — we respond fast.
+      </p>
+
+      <div class="contact-details">
+        <a href="tel:+917034735276" class="contact-detail">
+          <div class="detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .92h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="detail-info">
+            <div class="detail-label">Phone</div>
+            <div class="detail-value">+91 70347 35276</div>
+          </div>
+        </a>
+        <a href="https://wa.me/917034735276" target="_blank" class="contact-detail">
+          <div class="detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <div class="detail-info">
+            <div class="detail-label">WhatsApp</div>
+            <div class="detail-value">+91 70347 35276</div>
+          </div>
+        </a>
+        <a href="mailto:coreviaindustries@gmail.com" class="contact-detail">
+          <div class="detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="detail-info">
+            <div class="detail-label">Email</div>
+            <div class="detail-value">coreviaindustries@gmail.com</div>
+          </div>
+        </a>
+        <div class="contact-detail" style="cursor: default;">
+          <div class="detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="detail-info">
+            <div class="detail-label">Location</div>
+            <div class="detail-value">Alappuzha, Kerala, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-title">Send an <em>Enquiry</em></div>
+
+      <div id="formWrapper">
+        <form id="enquiryForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Your Name *</label>
+              <input type="text" class="form-input" id="fname" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company Name</label>
+              <input type="text" class="form-input" id="fcompany" placeholder="Business / Company">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp *</label>
+              <input type="tel" class="form-input" id="fphone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" id="femail" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Product Interested In</label>
+              <select class="form-select" id="fproduct">
+                <option value="">Select product type</option>
+                <option>POS Billing Rolls</option>
+                <option>ATM Paper Rolls</option>
+                <option>Logistics & Label Rolls</option>
+                <option>Petrol Pump Rolls</option>
+                <option>Medical / Pharmacy Rolls</option>
+                <option>Custom / Bulk Order</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Approximate Quantity</label>
+              <input type="text" class="form-input" id="fqty" placeholder="e.g. 500 rolls, 50 cartons">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Message / Specifications</label>
+              <textarea class="form-textarea" id="fmessage" placeholder="Tell us your roll width, length, core size, or any other requirements..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <span id="submitText">Send Enquiry</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-note">Your enquiry goes directly to coreviaindustries@gmail.com</div>
+        </form>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="success-title">Enquiry Sent</div>
+        <div class="success-text">Thank you. We will get back to you within a few hours on your phone or email.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-name">Corevia</div>
+      <div class="footer-logo-tag">Industries</div>
+      <div class="footer-desc">Premium thermal paper manufacturer and distributor. Precision-slit from our unit in Alappuzha, Kerala. Supplying businesses across India.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-links">
+        <li><a href="#products">POS Billing Rolls</a></li>
+        <li><a href="#products">ATM Paper Rolls</a></li>
+        <li><a href="#products">Logistics Rolls</a></li>
+        <li><a href="#products">Petrol Pump Rolls</a></li>
+        <li><a href="#products">Medical Rolls</a></li>
+        <li><a href="#products">Custom Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+917034735276">+91 70347 35276</a></li>
+        <li><a href="mailto:coreviaindustries@gmail.com">coreviaindustries@gmail.com</a></li>
+        <li><a href="https://wa.me/917034735276">WhatsApp Us</a></li>
+        <li><a href="#contact">Send Enquiry</a></li>
+        <li style="color: var(--white-faint); cursor: default;">Alappuzha, Kerala, India</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Corevia Industries. All rights reserved.</div>
+    <div class="footer-made">Made in <span>Kerala</span> — Serving <span>India</span></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917034735276" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+  function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); }
+  animRing();
+  document.querySelectorAll('a, button, .product-card, .why-item').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+
+  // SCROLL PROGRESS
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const s = document.documentElement.scrollTop;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${s / h})`;
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // FORM SUBMIT — mailto fallback (no server needed)
+  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value;
+    const company = document.getElementById('fcompany').value;
+    const phone = document.getElementById('fphone').value;
+    const email = document.getElementById('femail').value;
+    const product = document.getElementById('fproduct').value;
+    const qty = document.getElementById('fqty').value;
+    const message = document.getElementById('fmessage').value;
+
+    const subject = encodeURIComponent(`New Enquiry from ${name} – Corevia Industries`);
+    const body = encodeURIComponent(
+      `New Enquiry – Corevia Industries Website\n\n` +
+      `Name: ${name}\n` +
+      `Company: ${company || 'N/A'}\n` +
+      `Phone/WhatsApp: ${phone}\n` +
+      `Email: ${email || 'N/A'}\n` +
+      `Product: ${product || 'N/A'}\n` +
+      `Quantity: ${qty || 'N/A'}\n\n` +
+      `Message:\n${message || 'N/A'}`
+    );
+
+    window.location.href = `mailto:coreviaindustries@gmail.com?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      document.getElementById('formWrapper').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+    }, 600);
+  });
+</script>
+</body>
+</html>
